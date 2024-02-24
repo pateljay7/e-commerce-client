@@ -23,4 +23,8 @@ export class ProductService {
   updateProduct(product: CreateProductModel, id: string) {
     return this.http.put(`${environment.BASE_URL}/product/${id}`, product);
   }
+
+  deleteProduct(id: string) {
+    return this.http.delete(`${environment.BASE_URL}/product/${id}`);
+  }
 }

@@ -19,7 +19,9 @@
           [routerLink]="['edit', product._id]"
           >Edit</a
         >
-        <button type="button" class="btn btn-danger">Delete</button>
+        <button type="button" class="btn btn-danger" (click)="deleteProduct()">
+          Delete
+        </button>
         <button type="button" class="btn btn-secondary">View</button>
       </div>
     </div>
