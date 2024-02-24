@@ -1,1 +1,22 @@
-<p>single-product works!</p>
+<div class="container mt-4" *ngIf="product">
+  <div class="card mt-4" style="width: 18rem">
+    <div class="card-body">
+      <h5 class="card-title">{{ product.name }}</h5>
+      <p class="card-text">{{ product.description }}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Price: {{ product.price | currency }}</li>
+      <li class="list-group-item">Quantity: {{ product.quantity }}</li>
+      <li class="list-group-item">Category: {{ product.category }}</li>
+      <li class="list-group-item">Manufacturer: {{ product.manufacturer }}</li>
+    </ul>
+    <div class="card-footer text-muted">
+      Created At: {{ product.createdAt | date : "dd-mm-yyyy" }}
+      <div class="btn-group mt-2" role="group" aria-label="Action buttons">
+        <button type="button" class="btn btn-primary">Edit</button>
+        <button type="button" class="btn btn-danger">Delete</button>
+        <button type="button" class="btn btn-secondary">View</button>
+      </div>
+    </div>
+  </div>
+</div>
