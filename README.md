@@ -1,27 +1,23 @@
 # Client
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.11.
+List any software or dependencies that users need to install before running or developing your Angular project. For example:
 
-## Development server
+- Agular.js (version 16.0.0)
+- npm or yarn
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Installation
 
-## Code scaffolding
+Provide step-by-step instructions on how to set up and install your Angular project. Include any commands or configuration needed. For example:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Clone the repository: `git clone https://github.com/your-username/your-repo.git`
+2. Change into the project directory: `cd your-repo`
+3. Install dependencies: `npm install`
+4. create `environment.ts` and `environment.development.ts` for development server in `/environments/` folder
+5. Start the development server: `npm run start:dev`
 
-## Build
+## Development
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Development Server
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Explain how to run the development server and any additional setup needed. For example:
+`npm run start:dev`
