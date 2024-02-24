@@ -31,11 +31,15 @@ export class ProductService {
     return this.http.post(`${environment.BASE_URL}/product`, product);
   }
 
-  updateProduct(product: CreateProductModel, id: string) {
+  updateProduct(product: FormData, id: string) {
     return this.http.put(`${environment.BASE_URL}/product/${id}`, product);
   }
 
   deleteProduct(id: string) {
     return this.http.delete(`${environment.BASE_URL}/product/${id}`);
+  }
+
+  deleteProductImage(id: string) {
+    return this.http.delete(`${environment.BASE_URL}/product/image/${id}`);
   }
 }

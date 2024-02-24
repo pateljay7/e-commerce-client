@@ -25,6 +25,8 @@ export class ProductEditComponent implements OnInit {
   product: Product;
   productForm: FormGroup;
   productCategory = ['Electronics', 'Clothing', 'Books', 'Other'];
+  selectedImages: File[] = [];
+  existingImage: string[] = [];
 
   ngOnInit(): void {
     console.log('1');
@@ -35,7 +37,7 @@ export class ProductEditComponent implements OnInit {
         next: (res) => {
           this.product = (res as Response).data;
           console.log('pro', this.product);
-
+          this.existingImage = this.product.images;
           this.setInitForm();
         },
         error: (error) => {},
@@ -62,20 +64,45 @@ export class ProductEditComponent implements OnInit {
       manufacturer: new FormControl(this.product.manufacturer, [
         Validators.required,
       ]),
+      images: new FormControl(this.product.images, [Validators.required]),
     });
     console.log('form', this.productForm);
   }
 
   onSaveProduct() {
-    this.productService
-      .updateProduct(this.productForm.value, this.product._id)
-      .subscribe({
-        next: (res) => {
-          this.router.navigate(['../']);
-        },
-        error: (error) => {
-          console.log('Error while updating productu');
-        },
-      });
+    const formData = new FormData();
+    formData.append('name', this.productForm.get('name')?.value);
+    formData.append('description', this.productForm.get('description')?.value);
+    formData.append('price', this.productForm.get('price')?.value);
+    formData.append('quantity', this.productForm.get('quantity')?.value);
+    formData.append('category', this.productForm.get('category')?.value);
+    formData.append(
+      'manufacturer',
+      this.productForm.get('manufacturer')?.value
+    );
+
+    for (let i = 0; i < this.selectedImages.length; i++) {
+      formData.append(
+        'images',
+        this.selectedImages[i],
+        this.selectedImages[i].name
+      );
+    }
+    this.productService.updateProduct(formData, this.product._id).subscribe({
+      next: (res) => {
+        this.router.navigate(['../']);
+      },
+      error: (error) => {
+        console.log('Error while updating productu');
+      },
+    });
+  }
+  onImageChange(event: any): void {
+    const files: FileList = event.target.files;
+    this.selectedImages = [];
+
+    for (let i = 0; i < files.length; i++) {
+      this.selectedImages.push(files[i]);
+    }
   }
 }
