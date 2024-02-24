@@ -19,6 +19,10 @@ export interface CreateProductModel {
   manufacturer: string;
 }
 
+export interface UpdateProductModel extends CreateProductModel {
+  id: string;
+}
+
 export enum ProductCategory {
   Electronics = 'Electronics',
   Clothing = 'Clothing',

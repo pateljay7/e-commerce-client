@@ -1,1 +1,82 @@
-<p>product-edit works!</p>
+<div class="container mt-4" [formGroup]="productForm" *ngIf="productForm">
+  <h2>Add Product</h2>
+  <form>
+    <div class="form-group">
+      <label for="productName">Product Name:</label>
+      <input
+        formControlName="name"
+        type="text"
+        class="form-control"
+        id="productName"
+        placeholder="Enter product name"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="productDescription">Product Description:</label>
+      <textarea
+        formControlName="description"
+        class="form-control"
+        id="productDescription"
+        rows="3"
+        placeholder="Enter product description"
+        required
+      ></textarea>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="productPrice">Price ($):</label>
+        <input
+          formControlName="price"
+          type="number"
+          class="form-control"
+          id="productPrice"
+          placeholder="Enter product price"
+          step="0.01"
+          required
+        />
+      </div>
+      <div class="form-group col-md-6">
+        <label for="productQuantity">Quantity:</label>
+        <input
+          formControlName="quantity"
+          type="number"
+          class="form-control"
+          id="productQuantity"
+          placeholder="Enter product quantity"
+          required
+        />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="productCategory">Category:</label>
+        <select name="" id="" formControlName="category">
+          <option value="">Select category</option>
+          <option [value]="category" *ngFor="let category of productCategory">
+            {{ category }}
+          </option>
+        </select>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="productManufacturer">Manufacturer:</label>
+        <input
+          formControlName="manufacturer"
+          type="text"
+          class="form-control"
+          id="productManufacturer"
+          placeholder="Enter product manufacturer"
+          required
+        />
+      </div>
+    </div>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="!productForm.valid"
+      (click)="onSaveProduct()"
+    >
+      Save
+    </button>
+  </form>
+</div>

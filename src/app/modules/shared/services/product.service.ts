@@ -12,8 +12,15 @@ export class ProductService {
   fetchProducts() {
     return this.http.get(`${environment.BASE_URL}/product`);
   }
+  fetchProduct(id: string) {
+    return this.http.get(`${environment.BASE_URL}/product/${id}`);
+  }
 
   addProduct(product: CreateProductModel) {
     return this.http.post(`${environment.BASE_URL}/product`, product);
+  }
+
+  updateProduct(product: CreateProductModel, id: string) {
+    return this.http.put(`${environment.BASE_URL}/product/${id}`, product);
   }
 }

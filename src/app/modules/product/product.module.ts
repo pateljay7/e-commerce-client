@@ -27,6 +27,10 @@ import { ReactiveFormsModule } from '@angular/forms';
         component: AddProductComponent,
       },
       {
+        path: 'product/edit/:id',
+        component: ProductEditComponent,
+      },
+      {
         path: '**',
         redirectTo: 'product',
       },

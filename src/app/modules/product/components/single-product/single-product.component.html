@@ -13,7 +13,12 @@
     <div class="card-footer text-muted">
       Created At: {{ product.createdAt | date : "dd-mm-yyyy" }}
       <div class="btn-group mt-2" role="group" aria-label="Action buttons">
-        <button type="button" class="btn btn-primary">Edit</button>
+        <a
+          type="button"
+          class="btn btn-primary"
+          [routerLink]="['edit', product._id]"
+          >Edit</a
+        >
         <button type="button" class="btn btn-danger">Delete</button>
         <button type="button" class="btn btn-secondary">View</button>
       </div>
