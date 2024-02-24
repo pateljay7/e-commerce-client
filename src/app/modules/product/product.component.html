@@ -8,3 +8,11 @@
     (onDeleteSuccess)="fetchProducts()"
   ></app-single-product>
 </div>
+
+<div *ngIf="!productList.length">
+  <div>
+    No data available , click
+    <a [routerLink]="['add-product']">here</a>
+    to add product
+  </div>
+</div>

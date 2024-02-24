@@ -8,6 +8,7 @@ export interface Product {
   manufacturer: string;
   createdAt: string;
   updatedAt: string;
+  images: [string];
   __v: number;
 }
 export interface CreateProductModel {

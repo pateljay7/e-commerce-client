@@ -2,6 +2,25 @@
   <h2>Add Product</h2>
   <form>
     <div class="form-group">
+      <div class="form-group">
+        <label for="productImages">Product Images:</label>
+        <input
+          formControlName="images"
+          type="file"
+          class="form-control"
+          id="productImages"
+          multiple
+          accept="image/*"
+          (change)="onImageChange($event)"
+        />
+      </div>
+
+      <div *ngIf="selectedImages.length > 0">
+        <p>Selected Images:</p>
+        <ul>
+          <li *ngFor="let image of selectedImages">{{ image.name }}</li>
+        </ul>
+      </div>
       <label for="productName">Product Name:</label>
       <input
         formControlName="name"
